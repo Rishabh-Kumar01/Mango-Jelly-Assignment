@@ -93,7 +93,7 @@ Examples with query parameters:
 - Minimum price: `http://localhost:3000/api/comic-books?price=10,`
 - Maximum price: `http://localhost:3000/api/comic-books?price=,50`
 - Combining multiple filters:
-  `http://localhost:3000/api/comic-books?price=10,50&numberOfPages=100,200&authorName=Stan&yearOfPublication=1998&condition=new`
+  `http://localhost:3000/api/comic-books?yearOfPublication=1999&condition=new&price=1000,2000&numberOfPages=100,`
 
 ## 3. Get a Specific Comic Book
 
