@@ -136,32 +136,3 @@ Example: `http://localhost:3000/api/comic-books/60d5ecb54d84b5a4e8b9f7a1`
 
 Example with query parameter:
 `http://localhost:3000/api/comic-books/seed?count=100`
-
----
-
-## Testing Notes
-
-1. Set the appropriate HTTP method for each request in Postman.
-2. Enter the full URL, including any necessary ID or query parameters.
-3. For POST and PUT requests, go to the "Body" tab, select "raw", and choose
-   "JSON" from the dropdown. Then enter the JSON payload as provided above.
-4. For GET requests with query parameters:
-   - You can add them directly to the URL, or
-   - Use the "Params" tab in Postman to enter them more easily.
-5. For testing range queries on `price`, `discount`, and `numberOfPages`:
-   - Use comma-separated values for ranges (e.g., `price=10,50`)
-   - Use a trailing comma for minimum values (e.g., `price=10,`)
-   - Use a leading comma for maximum values (e.g., `price=,50`)
-6. After setting up each request, you can save them to a Postman collection for
-   easy access and repeated testing.
-
-Remember to start your server before testing these routes in Postman.
-
-## Response Format
-
-All responses will exclude the Mongoose version key (`__v`) for cleaner output.
-
-## Error Handling
-
-If a request is made to a non-existent route, the API will respond with a 404
-status code and a JSON object containing the message "Route doesn't exist".
