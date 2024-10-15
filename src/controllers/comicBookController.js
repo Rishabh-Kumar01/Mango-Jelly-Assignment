@@ -38,7 +38,13 @@ export const getComicBooks = async (req, res, next) => {
     Object.keys(filters).forEach((key) => {
       if (filters[key]) {
         if (key === "price" || key === "discount" || key === "numberOfPages") {
-          query[key] = { $gte: parseFloat(filters[key]) };
+          const [min, max] = filters[key].split(",");
+          query[key] = {};
+          if (min !== "") query[key].$gte = parseFloat(min);
+          if (max !== "" && max !== undefined)
+            query[key].$lte = parseFloat(max);
+
+          if (Object.keys(query[key]).length === 0) delete query[key];
         } else if (key === "yearOfPublication") {
           query[key] = { $eq: parseInt(filters[key]) };
         } else {
